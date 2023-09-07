@@ -4,9 +4,8 @@
 
 int main()
 {
-   
     entryMenu();
-    printf("\n Hello World");
+   // printf("\n Hello World");
     getchar();
     return 0;
 }
