@@ -3,20 +3,30 @@
 #include<stdlib.h>
 char add;
 	int choice;
+	char key;
    struct reserve order,a;
+
 void foodmenu()
 {
+    FILE *p;
+    p=fopen("resource/reservation.DAT","ab+");
+	if(p==NULL){
+		printf("\n Error! File not found");
+		exit(0);
+    }
+	flag1:
     printf("\n                    Food Menu");
 	printf("\n         *******************************");
 	printf("\n\n\t1.Breakfast");
 	printf("\n\t2.Lunch");
 	printf("\n\t3.Dinner");
+	printf("\n\t4.Exit");
 	flag:
     printf("\n\tEnter your choice: ");
     scanf("%d",&choice);
-    if(choice>3||choice<=0)
+    if(choice>4||choice<=0)
     {
-    	printf("\n\tPlease enter valid number between 1-3");
+    	printf("\n\tPlease enter valid number between 1-4");
     	goto flag;
 	}
 	switch(choice)
@@ -48,14 +58,14 @@ void foodmenu()
 			printf("\n\n\tEnter quantity/serving of the food you want to have for breakfast: ");
 			scanf("%d",&order.q);
 		
-			//fwrite(&order,sizeof(order),1,p);
+			fwrite(&order,sizeof(order),1,p);
 			/*rewind(p);
 			while(fread(&a,sizeof(a),1,p)==1){
 			printf("\n the id and q is %d%d",a.id,a.q);
 	}*/
 			fflush(stdin);
-			printf("\n\t Do you want to add other food");
-			printf("\n\t if yes press y or Y else any key to exit: ");
+			printf("\n\t Do you want to add other food?");
+			printf("\n\t If yes press y or Y else any key to exit: ");
 			
 			scanf("%c",&add);
 			if (add=='y'||add=='Y')
@@ -94,10 +104,14 @@ void foodmenu()
 			printf("\n\n\tEnter quantity/serving of the food you want to have for lunch: ");
 			scanf("%d",&order.q);
 			
-			//fwrite(&order,sizeof(order),1,p);
+			fwrite(&order,sizeof(order),1,p);
+		/*	rewind(p);
+			while(fread(&a,sizeof(a),1,p)==1){
+			printf("\n the id and q is %d%d",a.id,a.q);
+	}*/
 			fflush(stdin);
-			printf("\n\tDo you want to add other food");
-			printf("\n\t if yes press y or Y else any key to exit: ");
+			printf("\n\tDo you want to add other food?");
+			printf("\n\t If yes press y or Y else any key to exit: ");
 			scanf("%c",&add);
 			if (add=='y'||add=='Y')
 			{
@@ -134,10 +148,14 @@ void foodmenu()
 			}
 			printf("\n\n\tEnter quantity/serving of the food you want to have for dinner: ");
 			scanf("%d",&order.q);			
-			//fwrite(&order,sizeof(order),1,p);
+			fwrite(&order,sizeof(order),1,p);
+		/*	rewind(p);
+			while(fread(&a,sizeof(a),1,p)==1){
+			printf("\n the id and q is %d%d",a.id,a.q);
+	}*/
 			fflush(stdin);
-			printf("\n\tDo you want to add other food");
-			printf("\n\t if yes press y or Y else any key to exit: ");
+			printf("\n\tDo you want to add other food?");
+			printf("\n\t If yes press y or Y else any key to exit: ");
 			scanf("%c",&add);
 			if (add=='y'||add=='Y')
 			{
@@ -148,7 +166,19 @@ void foodmenu()
 				exit(0);
 			}
 		    break;
-			
+		case 4:
+		    printf("\n\tAre you sure you want to exit food menu?");
+			printf("\n\tIf yes please enter y or Y else press any key to continue: ");
+			fflush(stdin);
+			scanf("%c",&key);
+			if(key=='y'||key=='Y')
+			{
+				exit(0);
+			}
+			else{
+                goto flag1;
+			}
+			break;
 	}
-//fclose(p);
+fclose(p);
 }
