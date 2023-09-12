@@ -2,7 +2,9 @@
 #include "reservation.h"
 int main()
 {
-    menu();
+    static_input();
+    main_menu();
+    
     getchar();
     return 0;
 }
