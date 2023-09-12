@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include"../include/authentication.h"
-#include"../include/menus.h"
+#include"../include/menustruct.h"
 
 int main()
 {
