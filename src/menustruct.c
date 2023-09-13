@@ -10,6 +10,7 @@ char login_error_then_register;
 void entryMenu()
 {
     flag_wrong_choice:
+    fflush(stdin);
     printf("\n ----------------------------------------------------");
     printf("\n                     WELCOME                         ");
     printf("\n ----------------------------------------------------");
@@ -20,6 +21,7 @@ void entryMenu()
     printf("\n ------------------------------------- ");
     printf("\n | 3. | Exit                        |");
     printf("\n ------------------------------------- ");
+    fflush(stdin);
     printf("\n\n\n\n Enter Your Choice: ");
     scanf("%d", &entryChoice);
     if(entryChoice<1 || entryChoice>3)
@@ -30,42 +32,45 @@ void entryMenu()
     }
     switch (entryChoice)
     {
-    case 1:
-        returnloginValue= loginPage();
-        if(returnloginValue==0)
-        {
-            system("cls");
-            printf("\n-------------------------------------------------------------------------------------------------------------------------");
-            printf("\n    You don't have an accout...... Do you want to create an account..........If 'Yes' press 'Y' and if 'No' press 'N'");
-            printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
-            scanf("%c",&login_error_then_register);
-            if(login_error_then_register=='Y'|| login_error_then_register=='y')
+        case 1:
+            //returnloginValue= loginPage();
+            loginPage();
+        /* if(returnloginValue==0)
             {
-                registrationPage();
+                //system("cls");
+                printf("\n-------------------------------------------------------------------------------------------------------------------------");
+                printf("\n    You don't have an accout...... Do you want to create an account..........If 'Yes' press 'Y' and if 'No' press 'N'");
+                printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
+
+                goto flag_wrong_choice;*/
+            /* scanf("%c",&login_error_then_register);
+                if(login_error_then_register=='Y'|| login_error_then_register=='y')
+                {
+                    registrationPage();
+                }
+                else
+                {
+                    printf("\n Have a Great Day.....");
+                    system("cls");
+                    goto flag_wrong_choice;
+                    Sleep(1000);
+                    exit(0);
+                }
             }
             else
             {
-                printf("\n Have a Great Day.....");
-                system("cls");
-                goto flag_wrong_choice;
-                Sleep(1000);
-                exit(0);
-            }
-        }
-        else
-        {
-             hotel_display_choice_menu();
-        }
+                hotel_display_choice_menu();
+            }*/
+            break;
+        case 2:
+            registrationPage();
         break;
-    case 2:
-        registrationPage();
-    break;
-    case 3:
-        exit(0);
-        break;
-    default:
-        printf("\n You Entered Wrong Choice......");
-        break;
+        case 3:
+            exit(0);
+            break;
+        default:
+            printf("\n You Entered Wrong Choice......");
+            break;
     }
 }
 void hotel_display_choice_menu()

@@ -1,6 +1,7 @@
 #ifndef AUTHENTICATION_H
 #define AUTHENTICATION_H
-int loginPage();
+//int loginPage();
+void loginPage();
 void registrationPage();
 
 struct registration_structure

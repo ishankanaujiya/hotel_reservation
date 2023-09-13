@@ -18,6 +18,7 @@ char ch, ch1, username[100], pass[100], password_map_char[8];
 void registrationPage()
 {
 	system("cls");
+	fflush(stdin);
 	FILE* fileLogin;
 	fileLogin = fopen("resources/LoginPage.DAT", "ab+");
 	if (fileLogin == NULL)
@@ -25,6 +26,7 @@ void registrationPage()
 		printf("\n File Not Found");
 		exit(0);
 	}
+	fseek(fileLogin,0,SEEK_END);
 	printf("\n                           ---------------------------------------------");
 	printf("\n                                           REGESTRATION ");
 	printf("\n                           ---------------------------------------------");
@@ -73,24 +75,31 @@ void registrationPage()
 	printf("\n Account Regestered Successfully.....\n\n");
 	fclose(fileLogin);
 	system("pause");
+	printf("\n Account Regestered Successfully.....\n\n");
 	entryMenu();
 	//printf("\n Name = %s", form.name);
 }
 
-int loginPage()
+//int loginPage()
+void loginPage()
 {
+	fflush(stdin);
 	FILE* fileLogin;
-	int returnloginValue;
+	int returnloginValue=1;
 	printf("\n---------Login Page--------");
 	system("cls");
+
 	fileLogin = fopen("resources/LoginPage.DAT", "rb");
 	if (fileLogin == NULL)
 	{
 		printf("\n File Not Found");
 		exit(0);
 	}
+
 	rewind(fileLogin);
+	fseek(fileLogin,0,SEEK_SET);
 	fread(&login, sizeof(login), 1, fileLogin);
+
 	printf("\n                       :------------------------------------------------------:");
 	printf("\n                       :    :---------------------------------------------:   :");
 	printf("\n                       :    :                   LOGIN                     :   :");
@@ -108,14 +117,29 @@ int loginPage()
 	while (1)
 	{
 		ch1 = _getch();
-		pass[i] = ch1;
 		if (ch1 == 13)
 		{
 			pass[i] = '\0';
 			break;
 		}
-		printf("*");
-		i++;
+		else if(ch1==8)
+		{
+			if(i>0)
+			{
+				i--;
+				printf("\b \b");
+			}
+		}
+		else if(ch1==9|| ch1==32)
+		{
+			continue;
+		}
+		else
+		{
+			pass[i] = ch1;
+			printf("*");
+			i++;
+		}
 	}
 	printf("\n                  -------------------------------------------");
 	system("pause");
@@ -132,36 +156,43 @@ int loginPage()
 				}
 			}
 	}*/
+	count1=0;
 	for (i = 0; i < 100; i++)
 	{
 		if((strcmp(username, login[i].formUsername) == 0) && (strcmp(pass, login[i].password) == 0 ))
 		{
 				printf("\n Successfully Logged in into System\n\n");
-				//system("pause");
+				system("pause");
 				count1++;
-			//	i=0;
+				i=0;
 				break;
 		}
-		else
-		{
-			continue;
-		}
 	}
+	fclose(fileLogin);
 
 	if (count1 == 0)
 	{
+		fflush(stdin);
 		printf("\n ------------------------------------------------------------------------------------");
 		printf("\n  Wrong Username or Password");
 		printf("\n ------------------------------------------------------------------------------------\n");
-		fclose(fileLogin);
-		return 0;
+		Sleep(1000);
+		//registrationPage();
+		//fseek(fileLogin,0,SEEK_END);
+		//fclose(fileLogin);
+		
+		printf("\n Please regester the account.......");
+		//system("cls");
+		entryMenu();
 		Sleep(1000);
 	}
 	else
 	{
+		fflush(stdin);
 	//	i=0;
-		fclose(fileLogin);
-		return 1;
+		//fclose(fileLogin);
+		//return 1;
+		hotel_display_choice_menu();
 	}
 	//fclose(fileLogin);
 	//getchar();
