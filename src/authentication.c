@@ -6,81 +6,14 @@
 #include <string.h>
 #include <Windows.h>
 
-struct registration_structure form, login[100];
+struct registration_structure form, login[100], password_check;
 
 int i = 0, value = 0, j = 0, choice = 0, count = 0, count1 = 0;
 char ch, ch1, username[100], pass[100], password_map_char[8];
 
 // Variables for Password Check
 int char_string_length, count_password_check, numbers_password = 0, alphabets_password = 0, special_password = 0;
-int loginPage()
-{
-	FILE* fileLogin;
-	int returnloginValue;
-	printf("\n---------Login Page--------");
-	system("cls");
-	fileLogin = fopen("resources/LoginPage.DAT", "rb");
-	if (fileLogin == NULL)
-	{
-		printf("\n File Not Found");
-		exit(0);
-	}
-	rewind(0);
-	fread(&login, sizeof(login), 1, fileLogin);
-	printf("\n                       :------------------------------------------------------:");
-	printf("\n                       :    :---------------------------------------------:   :");
-	printf("\n                       :    :                   LOGIN                     :   :");
-	printf("\n                       :    :---------------------------------------------:   :");
-	printf("\n                       :------------------------------------------------------:");
-	printf("\n\n\n\n");
-	printf("\n                  -------------------------------------------");
-	fflush(stdin);
-	printf("\n                    Username: ");
-	gets(username);
-	fflush(stdin);
-	printf("\n                  -------------------------------------------");
-	printf("\n                    Password: ");
-	while (1)
-	{
-		ch1 = _getch();
-		pass[i] = ch1;
-		if (ch1 == 13)
-		{
-			pass[i] = '\0';
-			break;
-		}
-		printf("*");
-		i++;
-	}
-	printf("\n                  -------------------------------------------");
 
-	for (i = 0; i < 100; i++)
-	{
-		if (strcmp(username, login[i].formUsername) == 0)
-		{
-			if (strcmp(pass, login[i].password) == 0)
-			{
-				printf("\n Successfully Logged in into System\n\n");
-				system("pause");
-				count1++;
-			}
-		}
-	}
-	if (count1 == 0)
-	{
-		printf("\n ------------------------------------------------------------------------------------");
-		printf("\n  Wrong Username or Password");
-		printf("\n ------------------------------------------------------------------------------------\n");
-		return 0;
-		Sleep(1000);
-	}
-	else
-	{
-		return 1;
-	}
-
-	getchar();
-}
 
 void registrationPage()
 {
@@ -92,7 +25,6 @@ void registrationPage()
 		printf("\n File Not Found");
 		exit(0);
 	}
-	// rewind(fileLogin);
 	printf("\n                           ---------------------------------------------");
 	printf("\n                                           REGESTRATION ");
 	printf("\n                           ---------------------------------------------");
@@ -131,9 +63,8 @@ void registrationPage()
 	printf("\n                :--------------------------------------------:");
 
 	// Strong Password Condition
-	system("cls");
+	/*system("cls");
 	printf("\n\n");
-	// system("cls");
 	system("color 0B");
 	printf("\n *********************************************************************");
 	printf("\n\t Please Enter a Strong Password.");
@@ -144,21 +75,20 @@ void registrationPage()
 	printf("\n *********************************************************************");
 	Sleep(1000);
 	system("color 07");
-	printf("\n\n");
+	printf("\n\n");*/
 
 password_flag:
 
-	// system("cls");
 	printf("\n                :--------------------------------------------:");
 	fflush(stdin);
 	printf("\n                        :Password: ");
 	gets(form.password);
-	strcpy(password_map_char, form.password);
+	//strcpy(password_map_char, form.password);
 	printf("\n                :---------------------------------------------");
 
-	char_string_length = strlen(form.password);
+	//char_string_length = strlen(form.password);
 
-	if (char_string_length > 8)
+	/*if (char_string_length > 8)
 	{
 		printf("\n\n\n ****************************************************************");
 		printf("\n   Too many characters... Please Enter max 8 Characters....");
@@ -203,12 +133,101 @@ password_flag:
 		printf("\n");
 		Sleep(1000);
 		goto password_flag;
-	}
+	}*/
 
 	fwrite(&form, sizeof(struct registration_structure), 1, fileLogin);
-	fclose(fileLogin);
 	printf("\n Account Regestered Successfully.....\n\n");
+	fclose(fileLogin);
 	system("pause");
 	entryMenu();
-	printf("\n Name = %s", form.name);
+	//printf("\n Name = %s", form.name);
+}
+
+int loginPage()
+{
+	FILE* fileLogin;
+	int returnloginValue;
+	printf("\n---------Login Page--------");
+	system("cls");
+	fileLogin = fopen("resources/LoginPage.DAT", "rb");
+	if (fileLogin == NULL)
+	{
+		printf("\n File Not Found");
+		exit(0);
+	}
+	rewind(fileLogin);
+	fread(&login, sizeof(login), 1, fileLogin);
+	//fread(&password_check, sizeof(struct registration_structure), 1,fileLogin);
+	printf("\n                       :------------------------------------------------------:");
+	printf("\n                       :    :---------------------------------------------:   :");
+	printf("\n                       :    :                   LOGIN                     :   :");
+	printf("\n                       :    :---------------------------------------------:   :");
+	printf("\n                       :------------------------------------------------------:");
+	printf("\n\n\n\n");
+	fflush(stdin);
+	printf("\n                  -------------------------------------------");
+	fflush(stdin);
+	printf("\n                    Username: ");
+	gets(username);
+	fflush(stdin);
+	printf("\n                  -------------------------------------------");
+	printf("\n                    Password: ");
+	while (1)
+	{
+		ch1 = _getch();
+		pass[i] = ch1;
+		if (ch1 == 13)
+		{
+			pass[i] = '\0';
+			break;
+		}
+		printf("*");
+		i++;
+	}
+	printf("\n                  -------------------------------------------");
+	system("pause");
+	//rewind(fileLogin);
+	/*while(fread(&password_check, sizeof(struct registration_structure), 1,fileLogin)>0)
+	{
+			if (strcmp(username,password_check.formUsername) == 0)
+			{
+				if (strcmp(pass, password_check.password) == 0)
+				{
+					printf("\n Successfully Logged in into System\n\n");
+					system("pause");
+					count1++;
+				}
+			}
+	}*/
+	for (i = 0; i < 100; i++)
+	{
+		if((strcmp(username, login[i].formUsername) == 0) && (strcmp(pass, login[i].password) == 0 ))
+		{
+				printf("\n Successfully Logged in into System\n\n");
+				//system("pause");
+				count1++;
+			//	i=0;
+				break;
+		}
+		else
+		{
+			continue;
+		}
+	}
+
+	if (count1 == 0)
+	{
+		printf("\n ------------------------------------------------------------------------------------");
+		printf("\n  Wrong Username or Password");
+		printf("\n ------------------------------------------------------------------------------------\n");
+		return 0;
+		Sleep(1000);
+	}
+	else
+	{
+	//	i=0;
+		return 1;
+	}
+	//fclose(fileLogin);
+	//getchar();
 }
