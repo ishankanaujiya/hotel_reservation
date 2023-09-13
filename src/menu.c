@@ -5,6 +5,228 @@ char add;
 	int choice;
 	char key;
    struct reserve order,a;
+   int total=0,tot=0;
+int count=1,value;
+
+int function(struct reserve b)
+	{
+	        
+		    if(b.id==1)
+		    {
+		    printf("\n\n\tPLAIN PANCAKES............................RS 100");
+		    printf("\n\tThe quantity is:  %d",a.q);
+		    total=100*b.q;
+	        goto flag3;
+		    }
+		    else if(b.id==2)
+		    {
+			printf("\n\n\tTOMATO SOUP.................................RS 150");
+			printf("\n\tThe quantity is:  %d",b.q);
+		    total=150*b.q;
+		    goto flag3;
+			
+		    }
+			 else if(b.id==3)
+     		{   
+			printf("\n\n\tSANDWICH....................................RS 200");
+            printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+			goto flag3;
+			  }
+			 else if(b.id==4)
+	        {
+			printf("\n\n\tBOILED EGG..................................RS 100");
+            printf("\n\tThe quantity is:  %d",b.q);
+		    total=100*b.q;
+			goto flag3;
+			  }
+			 else if(b.id==5)
+            {
+
+			printf("\n\n\tMIX VEG SOUP................................RS 110");
+            printf("\n\tThe quantity is:  %d",b.q);
+		    total=110*b.q;
+			goto flag3;
+			  }
+			 else if(b.id==6)
+			{
+			printf("\n\n\tTEA/COFEE...................................RS 130");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=130*b.q;
+			}
+			 else if(b.id==7)
+			{
+			printf("\n\n\tFRUIT SALAD.................................RS 250");
+		     printf("\n\tThe quantity is:  %d",b.q);
+		    total=250*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==8)
+		    {
+			printf("\n\n\tBREAD JAM...................................RS 70");
+			printf("\n\tThe quantity is:  %d",b.q);
+		    total=70*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==9)
+			{
+			printf("\n\n\tSWEET CORN..................................RS140");
+			printf("\n\tThe quantity is:  %d",b.q);
+		    total=140*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==10)
+			{
+			printf("\n\n\tSAUSAGE....................................RS100");
+			printf("\n\tThe quantity is:  %d",b.q);
+		    total=100*b.q;
+		    goto flag3;
+			}
+			else if(b.id==11)
+			{
+			printf("\n\n\tSANDWICHES OR WRAPS........................RS200");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==12)
+			{
+			printf("\n\n\tKATHI ROLLS................................RS100");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=100*b.q;
+		    goto flag3;
+			}
+			else if(b.id==13)
+		    {
+			printf("\n\n\tMOONG DAL CHILLA...........................RS210");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=210*b.q;
+		    goto flag3;
+			}
+			else if(b.id==14)
+			{
+			printf("\n\n\tPOHA TIKKA.................................RS70");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=70*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==15)
+		    {
+				printf("\n\tBIRYANI....................................RS100");
+		    printf("\n\n\tThe quantity is:  %d",b.q);
+		    total=100*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==16)
+			{
+			printf("\n\n\tSTUFFFED PARATHA...........................RS150");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=150*b.q;
+		    goto flag3;
+			 }
+			 else if(b.id==17)
+			{
+			printf("\n\n\tSIJI PANCAKE...............................RS120");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=120*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==18)
+			{
+			printf("\n\n\tVEG BURGER.................................RS200");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==19)
+			{
+			printf("\n\n\tMUFFINS....................................RS170");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=170*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==20)
+			{
+			printf("\n\n\tPIZZA......................................RS200");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+		    goto flag3;
+			}
+			else if(b.id==21)
+		    {
+			printf("\n\n\tPULAU......................................RS250");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=250*b.q;
+		    goto flag3;
+			}
+			else if(b.id==22)
+		    {
+			printf("\n\n\tDAL MAKHANI................................RS200");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+		    goto flag3;
+			    }
+			 else if(b.id==23)
+		    {
+				printf("\n\n\tRAJMA PANEER CURRY.........................RS150");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=150*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==24)
+			{
+			printf("\n\n\tCHICKEN RICE...............................RS120");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=120*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==25)
+			{
+			printf("\n\n\tTHAKALI KHANA VEG..........................RS100");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=100*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==26)
+			{
+			printf("\n\n\tTHAKALI NON-VEG............................RS200");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==27)
+			{
+			printf("\n\n\tNAN ROTI WITH CURRY........................RS210");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=210*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==28)
+			{
+			printf("\n\n\tPASTA......................................RS130");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=130*b.q;
+		    goto flag3;
+			}
+			 else if(b.id==29)
+			{
+			printf("\n\n\tMIX FRUIT JUICE............................RS200");
+		    printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+		    goto flag3;
+			}
+			else
+		    {
+			printf("\n\n\tPANEER ROTI................................RS200");
+            printf("\n\tThe quantity is:  %d",b.q);
+		    total=200*b.q;
+		    goto flag3;
+			}
+            flag3:
+			printf("\n\t The total cost is:  %d",total); 
+	        return total;
+}
+
 
 void foodmenu()
 {
@@ -59,12 +281,15 @@ void foodmenu()
 			scanf("%d",&order.q);
 		
 			fwrite(&order,sizeof(order),1,p);
-			/*rewind(p);
+	        fseek(p,-(long)sizeof(order),SEEK_CUR);
 			while(fread(&a,sizeof(a),1,p)==1){
-			printf("\n the id and q is %d%d",a.id,a.q);
-	}*/
+			value=function(a);
+		    tot=tot+value;
+	        printf("\n\n\t The total sum of the food you have reserve is:  %d",tot);
+	
+		}
 			fflush(stdin);
-			printf("\n\t Do you want to add other food?");
+			printf("\n\n\t Do you want to add other food?");
 			printf("\n\t If yes press y or Y else any key to exit: ");
 			
 			scanf("%c",&add);
@@ -105,12 +330,16 @@ void foodmenu()
 			scanf("%d",&order.q);
 			
 			fwrite(&order,sizeof(order),1,p);
-		/*	rewind(p);
+	        fseek(p,-(long)sizeof(order),SEEK_CUR);
 			while(fread(&a,sizeof(a),1,p)==1){
-			printf("\n the id and q is %d%d",a.id,a.q);
-	}*/
+			value=function(a);
+		    tot=tot+value;
+	
+	        printf("\n\n\t The total sum of the food you have reserve is:  %d",tot);
+	
+		}
 			fflush(stdin);
-			printf("\n\tDo you want to add other food?");
+			printf("\n\n\tDo you want to add other food?");
 			printf("\n\t If yes press y or Y else any key to exit: ");
 			scanf("%c",&add);
 			if (add=='y'||add=='Y')
@@ -149,16 +378,20 @@ void foodmenu()
 			printf("\n\n\tEnter quantity/serving of the food you want to have for dinner: ");
 			scanf("%d",&order.q);			
 			fwrite(&order,sizeof(order),1,p);
-		/*	rewind(p);
+	        fseek(p,-(long)sizeof(order),SEEK_CUR);
 			while(fread(&a,sizeof(a),1,p)==1){
-			printf("\n the id and q is %d%d",a.id,a.q);
-	}*/
+			value=function(a);
+			tot=tot+value;
+	        printf("\n\n\t The total sum of the food you have reserve is:  %d",tot);
+	
+		}
 			fflush(stdin);
-			printf("\n\tDo you want to add other food?");
+			printf("\n\n\tDo you want to add other food?");
 			printf("\n\t If yes press y or Y else any key to exit: ");
 			scanf("%c",&add);
 			if (add=='y'||add=='Y')
-			{
+			{  
+	
 				goto din;
 			}
 			else

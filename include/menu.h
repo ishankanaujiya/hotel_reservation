@@ -8,4 +8,5 @@ struct reserve{
 /*char add;
 	int choice;*/
 void foodmenu();
+int function();
 #endif
