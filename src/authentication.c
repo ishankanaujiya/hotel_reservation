@@ -76,6 +76,7 @@ void registrationPage()
 	fclose(fileLogin);
 	system("pause");
 	printf("\n Account Regestered Successfully.....\n\n");
+	system("cls");
 	entryMenu();
 	//printf("\n Name = %s", form.name);
 }
@@ -86,6 +87,7 @@ void loginPage()
 	fflush(stdin);
 	FILE* fileLogin;
 	int returnloginValue=1;
+	login_flag:
 	printf("\n---------Login Page--------");
 	system("cls");
 
@@ -173,18 +175,35 @@ void loginPage()
 	if (count1 == 0)
 	{
 		fflush(stdin);
+		system("cls");
 		printf("\n ------------------------------------------------------------------------------------");
 		printf("\n  Wrong Username or Password");
 		printf("\n ------------------------------------------------------------------------------------\n");
 		Sleep(1000);
+		printf("\n No Such Data Found....");
+		printf("\n");
+		printf(".");
+		Sleep(666);
+		printf(".");
+		Sleep(666);
+		printf(".");
+		Sleep(666);
+		printf(".");
+		Sleep(666);
+		fflush(stdin);
+		fclose(fileLogin);
+		system("cls");
+		entryMenu();
+		exit(0);
 		//registrationPage();
 		//fseek(fileLogin,0,SEEK_END);
-		//fclose(fileLogin);
-		
+		/*fclose(fileLogin);
+		//exit(0);
 		printf("\n Please regester the account.......");
+		//goto login_flag;
 		//system("cls");
 		entryMenu();
-		Sleep(1000);
+		Sleep(1000);*/
 	}
 	else
 	{
