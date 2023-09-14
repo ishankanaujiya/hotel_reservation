@@ -34,7 +34,10 @@ void entryMenu()
     {
         case 1:
             //returnloginValue= loginPage();
-            loginPage();
+            if(!loginPage()) {
+                entryMenu();
+            }
+            hotel_display_choice_menu();    
         /* if(returnloginValue==0)
             {
                 //system("cls");
