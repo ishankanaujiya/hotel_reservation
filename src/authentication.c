@@ -278,7 +278,7 @@ void forgotPassword()
 	long long int forgot_password_number;
 	char forgot_password_name[100];
 	struct registration_structure forgot_password_check[100];
-	int i=0;
+	int i=0, count_not_found=0;
 	FILE* fileLogin;
 	fileLogin = fopen("resources/LoginPage.DAT", "rb");
 	if (fileLogin == NULL)
@@ -312,14 +312,26 @@ void forgotPassword()
 			{
 				system("cls");
 				printf("\n *************** DETAILS ****************");
-				printf("\n ------------------------------------------------");
+				printf("\n ----------------------------------------------------------------------------------");
 				printf("\n Username                       |                 Password                    ");
-				printf("\n ------------------------------------------------");
+				printf("\n ----------------------------------------------------------------------------------");
 				printf("\n Username = %s      |      Password = %s", forgot_password_check[i].formUsername, forgot_password_check[i].password);
 				printf("\n -------------------------------------------------------------------------------------------------------------------------");
+				count_not_found++;
 				
 			}
 		}
+	}
+	if(count_not_found==0)
+	{
+		system("cls");
+		printf("\n *****************************************");
+		printf("\n The Account is not Registered");
+		printf("\n *****************************************");
+		printf("\n\n");
+		system("pause");
+		system("cls");
+		entryMenu();
 	}
 	printf("\n\n");
 	system("pause");
