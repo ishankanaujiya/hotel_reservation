@@ -43,8 +43,15 @@ void entryMenu()
             }
             else
             {
+                system("cls");
+                printf("\n ***********************ERROR*************************");
+                printf("\n ******************************************************");
                 printf("\n No record Found");
-                printf("\n Please register your account and then Login......");
+                printf("\n Please Register your account and then Login");
+                printf("\n ******************************************************");
+                printf("\n\n");
+                system("pause");
+                system("cls");
                 entryMenu();
             }
            /*if(!loginPage()) {
@@ -97,20 +104,20 @@ void hotel_display_choice_menu()
     printf("\n\t\t                                  :             HOTEL RESERVATION SYSTEM             :");
     printf("\n\t\t                                  :--------------------------------------------------:");
     printf("\n\n\n\n\n\n\n");
-    printf("\n\t\t                                           ---------------------------------------");
-    printf("\n\t\t                                            | S.N |          CHOICES             |");
-    printf("\n\t\t                                           ---------------------------------------");
-    printf("\n\t\t                                           ---------------------------------------");
-    printf("\n\t\t                                            |  1. |       Room Information       |");
-    printf("\n\t\t                                            --------------------------------------");
-    printf("\n\t\t                                            |  2. |       Availability           |");
-    printf("\n\t\t                                            --------------------------------------");
-    printf("\n\t\t                                            |  2. |       Reservation            |");
-    printf("\n\t\t                                            --------------------------------------");
-    printf("\n\t\t                                            |  3. |       Cancellation           |");
-    printf("\n\t\t                                            --------------------------------------");
-    printf("\n\t\t                                            |  4. |       Exit                   |");
-    printf("\n\t\t                                            --------------------------------------");
+    printf("\n\t                                           ---------------------------------------");
+    printf("\n\t                                            | S.N |          CHOICES             |");
+    printf("\n\t                                           ---------------------------------------");
+    printf("\n\t                                           ---------------------------------------");
+    printf("\n\t                                            |  1. |       Room Information       |");
+    printf("\n\t                                            --------------------------------------");
+    printf("\n\t                                            |  2. |       Availability           |");
+    printf("\n\t                                            --------------------------------------");
+    printf("\n\t                                            |  3. |       Reservation            |");
+    printf("\n\t                                            --------------------------------------");
+    printf("\n\t                                            |  4. |       Cancellation           |");
+    printf("\n\t                                            --------------------------------------");
+    printf("\n\t                                            |  5. |       Exit                   |");
+    printf("\n\t                                            --------------------------------------");
     printf("\n\n\n\n\n                         ");
     printf("\t\t");
     printf("\n Enter your choice: ");
@@ -120,5 +127,32 @@ void hotel_display_choice_menu()
             printf("\n You Entered Wrong Choice..... Enter your choice..........");
             Sleep(1000);
             goto hotel_display_choice;
+        }
+        switch(hotel_display_choice)
+        {
+            case 1:
+                printf("\n Room Information");
+            break;
+
+            case 2:
+                printf("\n  Availability");
+            break;
+
+             case 3:
+                 printf("\n   Reservation");
+            break;
+
+             case 4:
+                printf("\n Cancellation");
+            break;
+
+             case 5:
+                printf("\n Exit ");
+            break;
+
+            default:
+                printf("\n Wrong Input");
+            break;
+
         }
 }
