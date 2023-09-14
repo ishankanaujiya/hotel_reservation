@@ -19,13 +19,15 @@ void entryMenu()
     printf("\n -------------------------------------");
     printf("\n | 2. |  Registration               |");
     printf("\n ------------------------------------- ");
-    printf("\n | 3. | Exit                        |");
+    printf("\n | 3. | Forgot Password             |");
+    printf("\n ------------------------------------- ");
+    printf("\n | 4. | Exit                        |");
     printf("\n ------------------------------------- ");
     
     fflush(stdin);
     printf("\n\n\n\n Enter Your Choice: ");
     scanf("%d", &entryChoice);
-    if(entryChoice<1 || entryChoice>3)
+    if(entryChoice<1 || entryChoice>4)
     {
         printf("\n Wrong Input of Choice......... Enter the Choice again.....");
         Sleep(1000);
@@ -54,43 +56,15 @@ void entryMenu()
                 system("cls");
                 entryMenu();
             }
-           /*if(!loginPage()) {
-                entryMenu();
-            }
-            hotel_display_choice_menu(); */   
-        /* if(returnloginValue==0)
-            {
-                //system("cls");
-                printf("\n-------------------------------------------------------------------------------------------------------------------------");
-                printf("\n    You don't have an accout...... Do you want to create an account..........If 'Yes' press 'Y' and if 'No' press 'N'");
-                printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
-
-                goto flag_wrong_choice;*/
-            /* scanf("%c",&login_error_then_register);
-                if(login_error_then_register=='Y'|| login_error_then_register=='y')
-                {
-                    registrationPage();
-                }
-                else
-                {
-                    printf("\n Have a Great Day.....");
-                    system("cls");
-                    goto flag_wrong_choice;
-                    Sleep(1000);
-                    exit(0);
-                }
-            }
-            else
-            {
-                hotel_display_choice_menu();
-            }*/
             break;
         case 2:
             registrationPage();
         break;
         case 3:
+            forgotPassword();
+        break;
+        case 4:
             exit(0);
-            break;
         default:
             printf("\n You Entered Wrong Choice......");
             break;

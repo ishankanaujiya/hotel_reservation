@@ -272,3 +272,61 @@ int loginPage()
 		return 0;
 	}
 }
+
+void forgotPassword()
+{
+	long long int forgot_password_number;
+	char forgot_password_name[100];
+	struct registration_structure forgot_password_check[100];
+	int i=0;
+	FILE* fileLogin;
+	fileLogin = fopen("resources/LoginPage.DAT", "rb");
+	if (fileLogin == NULL)
+	{
+		printf("\n File Not Found");
+		exit(0);
+	}
+	fflush(stdin);
+	rewind(fileLogin);
+	fread(&forgot_password_check,sizeof(forgot_password_check),1,fileLogin);
+	//printf("\n Name = %s", forgot_password_check[4].name);
+
+	system("cls");
+	//printf("\n Name = %s", forgot_password_check[4].name);
+	printf("\n *****************SEARCH*****************");
+	printf("\n Enter Applicants Name: ");
+	fflush(stdin);
+	gets(forgot_password_name);
+	printf("\n Enter Applicants Number: ");
+	scanf("%lld", &forgot_password_number);
+	//fclose(fileLogin);
+	for(i=0; i<100; i++)
+	{
+		//printf("\n Name = %s", forgot_password_check[4].name);
+		//system("pause");
+		//break;
+		//printf("\n ");
+		if(strcmp(forgot_password_name, forgot_password_check[i].name)==0)
+		{
+			if(forgot_password_number==forgot_password_check[i].phone)
+			{
+				system("cls");
+				printf("\n *************** DETAILS ****************");
+				printf("\n ------------------------------------------------");
+				printf("\n Username                       |                 Password                    ");
+				printf("\n ------------------------------------------------");
+				printf("\n Username = %s      |      Password = %s", forgot_password_check[i].formUsername, forgot_password_check[i].password);
+				printf("\n -------------------------------------------------------------------------------------------------------------------------");
+				
+			}
+		}
+	}
+	printf("\n\n");
+	system("pause");
+	system("cls");
+	entryMenu();
+	fclose(fileLogin);
+
+
+	
+}

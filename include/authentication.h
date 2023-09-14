@@ -3,6 +3,7 @@
 //int loginPage();
 int loginPage();
 void registrationPage();
+void forgotPassword();	
 
 struct registration_structure
 {
