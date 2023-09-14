@@ -184,12 +184,12 @@ void loginPage()
 		printf("\n");
 		printf(".");
 		Sleep(666);
-		printf(".");
+		/*printf(".");
 		Sleep(666);
 		printf(".");
 		Sleep(666);
 		printf(".");
-		Sleep(666);
+		Sleep(666);*/
 		fflush(stdin);
 		fclose(fileLogin);
 		system("cls");
