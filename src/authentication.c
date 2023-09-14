@@ -109,6 +109,8 @@ login_flag:
 	fflush(stdin);
 	printf("\n                  -------------------------------------------");
 	printf("\n                    Password: ");
+	//gets(pass);
+	i=0;
 	while (1)
 	{
 		ch1 = _getch();
@@ -135,11 +137,15 @@ login_flag:
 			printf("*");
 			i++;
 		}
+		
 	}
+	
 	printf("\n                  -------------------------------------------");
 	system("pause");
 	count1 = 0;
 	rewind(fileLogin);
+	printf("\n Name=%s", login[1].name);
+	getchar();
 	for (i = 0; i < 100; i++)
 	{
 		if ((strcmp(username, login[i].formUsername) == 0) && (strcmp(pass, login[i].password) == 0))
@@ -154,18 +160,6 @@ login_flag:
 
 	if (count1 == 0)
 	{
-		fflush(stdin);
-		system("cls");
-		printf("\n ------------------------------------------------------------------------------------");
-		printf("\n  Wrong Username or Password");
-		printf("\n ------------------------------------------------------------------------------------\n");
-		Sleep(1000);
-		printf("\n No Such Data Found....");
-		printf("\n");
-		printf(".");
-		Sleep(666);
-
-		fflush(stdin);
 		fclose(fileLogin);
 		return 0;
 	}

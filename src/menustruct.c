@@ -21,6 +21,7 @@ void entryMenu()
     printf("\n ------------------------------------- ");
     printf("\n | 3. | Exit                        |");
     printf("\n ------------------------------------- ");
+    
     fflush(stdin);
     printf("\n\n\n\n Enter Your Choice: ");
     scanf("%d", &entryChoice);
@@ -33,11 +34,23 @@ void entryMenu()
     switch (entryChoice)
     {
         case 1:
-            //returnloginValue= loginPage();
-            if(!loginPage()) {
+        
+            returnloginValue= loginPage();
+            if(returnloginValue==1)
+            {
+                printf("\n Successfully Entered to the System");
+                hotel_display_choice_menu();
+            }
+            else
+            {
+                printf("\n No record Found");
+                printf("\n Please register your account and then Login......");
                 entryMenu();
             }
-            hotel_display_choice_menu();    
+           /*if(!loginPage()) {
+                entryMenu();
+            }
+            hotel_display_choice_menu(); */   
         /* if(returnloginValue==0)
             {
                 //system("cls");
