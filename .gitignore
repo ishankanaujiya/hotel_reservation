@@ -58,3 +58,7 @@ CMakeLists.txt.user
 
 # Qt Creator
 *~.swp
+
+#files
+*.DAT
+*.txt
