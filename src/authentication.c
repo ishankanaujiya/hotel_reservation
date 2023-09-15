@@ -2,9 +2,9 @@
 #include "../include/menustruct.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+#include "unistd.h"
 #include <string.h>
-#include <Windows.h>
+
 
 struct registration_structure form, login[100], password_check;
 
@@ -81,7 +81,7 @@ void registrationPage()
 	printf("\n 3. Must contain atleast One Symbol '@', '#', '*', '$'");
 	printf("\n *******************************************************************");
 	printf("\n\n");
-	Sleep(1000);
+	sleep(1);
 	system("color 07");
 	fflush(stdin);
 	printf("\n                :--------------------------------------------:");
@@ -98,7 +98,7 @@ void registrationPage()
 		printf("\n *************************************************************");
 		printf("\n Password is too Long.... Must have maximum 15 Characters");
 		printf("\n *************************************************************");
-		Sleep(1000);
+		sleep(1);
 	}
 	i=0;
 	fflush(stdin);
@@ -151,7 +151,7 @@ void registrationPage()
 		printf("\n *************************************************");
 		printf("\n The Entered Password is not Strong Enough");
 		printf("\n *************************************************");
-		Sleep(1000);
+		sleep(1);
 		goto password_check;
 	}
 	fwrite(&form, sizeof(struct registration_structure), 1, fileLogin);
@@ -200,7 +200,7 @@ int loginPage()
 	i=0;
 	while (1)
 	{
-		ch1 = _getch();
+		ch1 = getchar();
 		if (ch1 == 13)
 		{
 			pass[i] = '\0';
@@ -238,21 +238,21 @@ int loginPage()
 	printf("\n\t\t\t\t\t\t");
 	printf("PLEASE WAIT");
 	printf("\n\t\t\t\t\t\t .");
-	Sleep(666);
+	sleep(0.666);
+	printf("");
+	sleep(0.666);
 	printf(".");
-	Sleep(666);
+	sleep(0.666);
 	printf(".");
-	Sleep(666);
+	sleep(0.666);
 	printf(".");
-	Sleep(666);
+	sleep(0.666);
 	printf(".");
-	Sleep(666);
+	sleep(0.666);
 	printf(".");
-	Sleep(666);
+	sleep(0.666);
 	printf(".");
-	Sleep(666);
-	printf(".");
-	Sleep(666);
+	sleep(0.666);
 	system("color 07");
 
 	for (i = 0; i < 100; i++)

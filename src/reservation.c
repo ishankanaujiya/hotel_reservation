@@ -31,7 +31,7 @@ void customer_info()
     printf("\n Enter Your Name: ");
     gets(reservationVariable.name);
     printf("Enter Your Phone Number: ");
-    scanf("%d", &reservationVariable.phone);
+    scanf("%lld", &reservationVariable.phone);
     fflush(stdin);
     printf("Enter Your Address: ");
     gets(reservationVariable.address);
