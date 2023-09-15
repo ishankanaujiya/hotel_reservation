@@ -4,7 +4,7 @@
 #include"../include/menu.h"
 #include<stdio.h>
 #include<stdlib.h>
-#include<Windows.h>
+#include"unistd.h"
 int entryChoice=0, hotel_display_choice;
 int returnloginValue;
 char login_error_then_register;
@@ -32,7 +32,7 @@ void entryMenu()
     if(entryChoice<1 || entryChoice>4)
     {
         printf("\n Wrong Input of Choice......... Enter the Choice again.....");
-        Sleep(1000);
+        sleep(1);
         goto flag_wrong_choice;
     }
     switch (entryChoice)
@@ -101,7 +101,7 @@ void hotel_display_choice_menu()
         if(hotel_display_choice<1 || hotel_display_choice>4)
         {
             printf("\n You Entered Wrong Choice..... Enter your choice..........");
-            Sleep(1000);
+            sleep(1);
             goto hotel_display_choice;
         }
         switch(hotel_display_choice)
