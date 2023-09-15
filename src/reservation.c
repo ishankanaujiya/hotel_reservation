@@ -205,6 +205,7 @@ flag:
     case 5:
         read_from_file();
         getchar();
+        system("pause");
         goto flag;
         break;
     case 6:
