@@ -1,5 +1,7 @@
 #include"../include/menustruct.h"
 #include"../include/authentication.h"
+#include "../include/reservation.h"
+#include"../include/menu.h"
 #include<stdio.h>
 #include<stdlib.h>
 #include<Windows.h>
@@ -41,7 +43,7 @@ void entryMenu()
             if(returnloginValue==1)
             {
                 printf("\n Successfully Entered to the System");
-                hotel_display_choice_menu();
+                main_menu();
             }
             else
             {

@@ -8,7 +8,7 @@
 
 struct registration_structure form, login[100], password_check;
 
-int i = 0, value = 0, j = 0, choice = 0, count = 0, count1 = 0;
+int i = 0, j = 0, count1 = 0;
 char ch, ch1, username[100], pass[100], password_map_char[8];
 
 // Variables for Password Check
