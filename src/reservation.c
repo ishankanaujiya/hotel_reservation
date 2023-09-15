@@ -214,12 +214,15 @@ flag:
         break;
     case 7:
     system("cls");
-        printf("Program Made By: ");
-        printf("\n-Ishan Kanaugiya");
-        printf("\n-Krishala Dangol");
-        printf("\n-Mohammad Aarman");
-        printf("\n-Sakina Dongoal");
-        printf("\n-Thank You For Your Time-");
+        printf("\n *************************************");
+        printf("\n            Program Made By: ");
+        printf("\n *************************************");
+        printf("\n - Ishan Kanaujiya");
+        printf("\n - Krishala Dangol");
+        printf("\n - Mohammad Aarman");
+        printf("\n - Sakina Dangol");
+        printf("\n - Thank You For Your Time");
+        printf("\n *************************************");
         printf("\n\n");
         system("pause");
         exit(0);
