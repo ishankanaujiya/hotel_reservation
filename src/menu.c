@@ -1,4 +1,5 @@
 #include "../include/menu.h"
+#include"../include/reservation.h"
 #include <stdio.h>
 #include <stdlib.h>
 char add;
@@ -420,7 +421,8 @@ flag:
 		scanf("%c", &key);
 		if (key == 'y' || key == 'Y')
 		{
-			exit(0);
+			system("cls");
+			main_menu();
 		}
 		else
 		{

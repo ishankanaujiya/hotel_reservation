@@ -1,4 +1,5 @@
 #include "../include/reservation.h"
+#include"../include/menu.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -82,12 +83,15 @@ void customer_info()
         rename("resources/test.txt", "resources/rooms.txt");
         fwrite(&reservationVariable, sizeof(reservationVariable), 1, ptr1);
         fclose(ptr1);
+
     }
 }
 
 void main_menu()
 {
+    char food_choice;
 flag:
+    system("cls");
     printf("\n\t\t --------------------------------------------------");
     printf("\n\t\t              HOTEL RESERVATION SYSTEM ");
     printf("\n\t\t --------------------------------------------------");
@@ -125,6 +129,7 @@ flag:
         getchar();
         goto flag;
         break;
+
     case 2:
 
         ptr1 = fopen("resources/reserved.txt", "a+");
@@ -164,7 +169,14 @@ flag:
             printf("\n Reservation Successful.");
             fclose(ptr1);
             fflush(stdin);
-
+            printf("\n Do you want to order Food?");
+            scanf("%c", &food_choice);
+            if(food_choice=='Y'|| food_choice=='y')
+            {
+                system("cls");
+                foodmenu();
+                getchar();
+            }
             printf("\n Do you want to Reserve more Room...... If Yes press Y");
             scanf("%c", &roomChoice);
 
@@ -178,8 +190,11 @@ flag:
         goto flag;
         break;
     case 4:
+        system("cls");
         room_availability();
-        getchar();
+       // getchar();
+        system("pause");
+
         goto flag;
 
         break;
