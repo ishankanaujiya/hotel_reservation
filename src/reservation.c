@@ -205,6 +205,7 @@ flag:
     case 5:
         read_from_file();
         getchar();
+        system("pause");
         goto flag;
         break;
     case 6:
@@ -212,12 +213,15 @@ flag:
         exit(0);
         break;
     case 7:
+    system("cls");
         printf("Program Made By: ");
         printf("\n-Ishan Kanaugiya");
         printf("\n-Krishala Dangol");
         printf("\n-Mohammad Aarman");
         printf("\n-Sakina Dongoal");
         printf("\n-Thank You For Your Time-");
+        printf("\n\n");
+        system("pause");
         exit(0);
         break;
     default:
@@ -323,6 +327,7 @@ void cancellation()
         }
         else
         {
+            system("cls");
             printf("Sorry!! Phone number not Found.... \n\n");
             printf("Program Made By: ");
             printf("\n-Ishan Kanaugiya");
@@ -330,6 +335,7 @@ void cancellation()
             printf("\n-Mohammad Aarman");
             printf("\n-Sakina Dongoal");
             printf("\n-Thank You For Your Time-");
+            system("pause");
             exit(0);
         }
     }
