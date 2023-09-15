@@ -231,12 +231,13 @@ int function(struct reserve b)
 void foodmenu()
 {
     FILE *p;
-    p=fopen("resource/reservation.DAT","ab+");
+    p=fopen("resources/reservation.DAT","ab+");
 	if(p==NULL){
 		printf("\n Error! File not found");
 		exit(0);
     }
 	flag1:
+	//printf("\n hahahh");
     printf("\n                    Food Menu");
 	printf("\n         *******************************");
 	printf("\n\n\t1.Breakfast");
@@ -254,6 +255,7 @@ void foodmenu()
 	switch(choice)
 	{
 		case 1:
+		system("cls");
 		    
 			printf("\n                            KATHMANDU HOTEL ");
 			printf("\n\n                             Breakfast");
@@ -285,7 +287,10 @@ void foodmenu()
 			while(fread(&a,sizeof(a),1,p)==1){
 			value=function(a);
 		    tot=tot+value;
+			printf("\n\n\t**************************************************************");
 	        printf("\n\n\t The total sum of the food you have reserve is:  %d",tot);
+			printf("\n\n\t***************************************************************");
+
 	
 		}
 			fflush(stdin);
@@ -299,11 +304,14 @@ void foodmenu()
 			}
 			else
 			{
-				exit (0);
+				system("cls");
+				goto flag1;
+				//exit (0);
 			}
 			
 			break;
 		case 2:
+		system("cls");
 		    printf("\n                              KATHMANDU HOTEL");
 			printf("\n\n                               Lunch");
 			printf("\n                           ***********************");
@@ -334,9 +342,9 @@ void foodmenu()
 			while(fread(&a,sizeof(a),1,p)==1){
 			value=function(a);
 		    tot=tot+value;
-	
+	        printf("\n\n\t**************************************************************");
 	        printf("\n\n\t The total sum of the food you have reserve is:  %d",tot);
-	
+	         printf("\n\n\t**************************************************************");
 		}
 			fflush(stdin);
 			printf("\n\n\tDo you want to add other food?");
@@ -348,11 +356,14 @@ void foodmenu()
 			}
 			else
 			{
-				exit(0);
+				system("cls");
+				goto flag1;
+				//exit(0);
 			}
 			break;
 		    
 		case 3:
+		system("cls");
 			 printf("\n                              KATHMANDU HOTEL");
 			printf("\n\n                               Dinner");
 			printf("\n                           ***********************");
@@ -382,8 +393,9 @@ void foodmenu()
 			while(fread(&a,sizeof(a),1,p)==1){
 			value=function(a);
 			tot=tot+value;
+			printf("\n\n\t**************************************************************");
 	        printf("\n\n\t The total sum of the food you have reserve is:  %d",tot);
-	
+	        printf("\n\n\t**************************************************************");
 		}
 			fflush(stdin);
 			printf("\n\n\tDo you want to add other food?");
@@ -396,7 +408,9 @@ void foodmenu()
 			}
 			else
 			{
-				exit(0);
+				system("cls");
+				goto flag;
+				//exit(0);
 			}
 		    break;
 		case 4:
