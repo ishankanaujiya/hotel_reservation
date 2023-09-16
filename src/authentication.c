@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "unistd.h"
 #include <string.h>
-
+#include<conio.h>
 
 struct registration_structure form, login[100], password_check;
 
@@ -200,7 +200,7 @@ int loginPage()
 	i=0;
 	while (1)
 	{
-		ch1 = getchar();
+		ch1 = _getch();
 		if (ch1 == 13)
 		{
 			pass[i] = '\0';

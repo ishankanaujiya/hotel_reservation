@@ -19,7 +19,7 @@ void customer_info()
 {
     int i = 0;
     char name[30];
-    ptr1 = fopen("resources/reserved.txt", "a+");
+    ptr1 = fopen("resources/reserved.txt", "ab+");
 
     if (ptr1 == NULL)
     {
@@ -41,8 +41,8 @@ void customer_info()
     {
         printf("Enter Room Number(1-20): ");
     flag2:
-        ptr2 = fopen("resources/rooms.txt", "r");
-        test = fopen("resources/test.txt", "w");
+        ptr2 = fopen("resources/rooms.txt", "rb");
+        test = fopen("resources/test.txt", "wb");
         scanf("%d", &reservationVariable.RoomNumber);
         
         if (reservationVariable.RoomNumber < 1 || reservationVariable.RoomNumber > 20)
@@ -138,7 +138,7 @@ flag:
 
     case 2:
 
-        ptr1 = fopen("resources/reserved.txt", "a+");
+        ptr1 = fopen("resources/reserved.txt", "ab+");
         if (ptr1 == NULL)
         {
             printf("\n File Not found! ");
@@ -249,8 +249,8 @@ flag:
 void read_from_file()
 {
     
-    ptr1 = fopen("resources/reserved.txt", "r");
-    ptr2 = fopen("resources/rooms.txt", "r");
+    ptr1 = fopen("resources/reserved.txt", "rb");
+    ptr2 = fopen("resources/rooms.txt", "rb");
     if (ptr1 == NULL || ptr2 == NULL)
     {
         printf("\n***** File Not found!!! ******");
@@ -279,7 +279,7 @@ void read_from_file()
 void room_availability()
 {
     // char NotBooked[11]="Not Booked";
-    ptr2 = fopen("resources/rooms.txt", "r");
+    ptr2 = fopen("resources/rooms.txt", "rb");
     if (ptr2 == NULL)
     {
         printf("Room file not found:");
@@ -299,7 +299,7 @@ void cancellation()
     int success = 0;
     char NotBooked[11] = "Not Booked";
 
-    ptr1 = fopen("resources/reserved.txt", "r");
+    ptr1 = fopen("resources/reserved.txt", "rb");
 
     if (ptr2 == NULL || ptr1 == NULL)
     {
@@ -308,9 +308,9 @@ void cancellation()
     }
     int cancel_room;
     long long int phone;
-flag3:
-    ptr2 = fopen("resources/rooms.txt", "r");
-    test = fopen("resources/test.txt", "w");
+    flag3:
+    ptr2 = fopen("resources/rooms.txt", "rb");
+    test = fopen("resources/test.txt", "wb");
     printf("Enter room number you want to cancel(1-60):  ");
     scanf("%d", &cancel_room);
     printf("Enter your Phone Number that you have provided in reservation: ");
@@ -393,7 +393,7 @@ void static_input()
     int i = 0;
     FILE *ptr2;
 
-    ptr2 = fopen("resources/rooms.txt", "w");
+    ptr2 = fopen("resources/rooms.txt", "wb");
     if (ptr2 == NULL)
     {
         printf("Room file not found:");
@@ -423,7 +423,7 @@ void deluxe_customer_info()
 {
     int i = 0;
     char name[30];
-    ptr1 = fopen("resources/reserved.txt", "a+");
+    ptr1 = fopen("resources/reserved.txt", "ab+");
 
     if (ptr1 == NULL)
     {
@@ -446,8 +446,8 @@ void deluxe_customer_info()
 
         printf("Enter Room Number(21-40): ");
     flag2:
-        ptr2 = fopen("resources/rooms.txt", "r");
-        test = fopen("resources/test.txt", "w");
+        ptr2 = fopen("resources/rooms.txt", "rb");
+        test = fopen("resources/test.txt", "wb");
         scanf("%d", &reservationVariable.RoomNumber);
         if (reservationVariable.RoomNumber < 21 || reservationVariable.RoomNumber > 40)
         {
@@ -496,7 +496,7 @@ void normal_customer_info()
 {
     int i = 0;
     char name[30];
-    ptr1 = fopen("resources/reserved.txt", "a+");
+    ptr1 = fopen("resources/reserved.txt", "ab+");
 
     if (ptr1 == NULL)
     {
@@ -519,8 +519,8 @@ void normal_customer_info()
 
         printf("Enter Room Number(41-60): ");
     flag2:
-        ptr2 = fopen("resources/rooms.txt", "r");
-        test = fopen("resources/test.txt", "w");
+        ptr2 = fopen("resources/rooms.txt", "rb");
+        test = fopen("resources/test.txt", "wb");
         scanf("%d", &reservationVariable.RoomNumber);
         if (reservationVariable.RoomNumber < 41 || reservationVariable.RoomNumber > 60)
         {
@@ -569,7 +569,7 @@ void normal_customer_info()
 void search_info()
 {
     char name[30];
-    ptr1 = fopen("resources/reserved.txt", "r");
+    ptr1 = fopen("resources/reserved.txt", "rb");
     if (ptr1 == NULL)
     {
         printf("File Not Found!!!!");
@@ -600,7 +600,7 @@ void room_checkout()
     int success = 0;
     char NotBooked[11] = "Not Booked";
 
-    ptr1 = fopen("resources/reserved.txt", "r");
+    ptr1 = fopen("resources/reserved.txt", "rb");
 
     if (ptr1 == NULL)
     {
@@ -610,8 +610,8 @@ void room_checkout()
     int checkout_room;
     long long int phone;
 flag3:
-    ptr2 = fopen("resources/rooms.txt", "r");
-    test = fopen("resources/test.txt", "w");
+    ptr2 = fopen("resources/rooms.txt", "rb");
+    test = fopen("resources/test.txt", "wb");
     printf("Enter room number you want to Checkout(1-60):  ");
     scanf("%d", &checkout_room);
     printf("Enter your Phone Number that you have provided in reservation: ");
