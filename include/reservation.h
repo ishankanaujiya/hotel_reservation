@@ -11,6 +11,7 @@ void search_info();
 void deluxe_customer_info();
 void normal_customer_info();
 void room_checkout();
+void print_hotel();
 struct reservationName
 {
 	char name[100];
@@ -30,5 +31,6 @@ struct replace
 	int number;
 	char type[11];
 };
+
 
 #endif

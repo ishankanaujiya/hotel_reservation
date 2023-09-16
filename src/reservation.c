@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include<Windows.h>
 
 FILE *ptr1, *ptr2, *test;
 char roomChoice, Booked[11] = "Booked", NotBooked[11] = "Not Booked";
@@ -27,19 +28,29 @@ void customer_info()
         exit(0);
     }
     fflush(stdin);
-    printf("\n Enter Your Name: ");
+    //printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Name: ");
     gets(reservationVariable.name);
-    printf("Enter Your Phone Number: ");
+    //printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+   // printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Phone Number: ");
     scanf("%lld", &reservationVariable.phone);
     fflush(stdin);
-    printf("Enter Your Address: ");
+    //printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+   // printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Address: ");
     gets(reservationVariable.address);
     strcpy(reservationVariable.room, "AC");
-    printf("Enter how many room do you want to Reserve: ");
+    //printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+    //printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\tEnter how many room do you want to Reserve: ");
     scanf("%d", &reservationVariable.roomNumber);
+    //printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
     for (i = 1; i <= reservationVariable.roomNumber; i++)
     {
-        printf("Enter Room Number(1-20): ");
+      //  printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
+        printf("\n\t\t\t\t\t\t\t\tEnter Room Number(1-20): ");
+        //printf("\n\t\t\t\t\t\t\t\t----------------------------------------------");
     flag2:
         ptr2 = fopen("resources/rooms.txt", "rb");
         test = fopen("resources/test.txt", "wb");
@@ -47,7 +58,10 @@ void customer_info()
         
         if (reservationVariable.RoomNumber < 1 || reservationVariable.RoomNumber > 20)
         {
-            printf("The Number You entered is Invalid !!!\nPlease Enter Room Number Between 1 and 20 for AC Room: ");
+          //  printf("\n\t\t\t\t\t\t\t\t*----------------------------------------------");
+            printf("\n\n\t\t\t\t\tThe Number You entered is Invalid !!! ");
+            printf("\n\n\t\t\t\t\tPlease Enter Room Number Between 1 and 20 for AC Room: ");
+            //printf("\n\t\t\t\t\t----------------------------------------------"); 
             goto flag2;
         }
         while (fread(&variable, sizeof(variable), 1, ptr2))
@@ -57,7 +71,9 @@ void customer_info()
                 int comparison = strcmp("Booked", variable.typeroom);
                 if (comparison == 0)
                 {
-                    printf("Sorry!! The room is already booked. Please Re-Enter room number: ");
+              //      printf("\n\t\t\t\t\t-------------------------------------------------------------------");
+                    printf("\n\n\t\t\t\t\tSorry!! The room is already booked. Please Re-Enter room number: ");
+                //    printf("\n\t\t\t\t\t-------------------------------------------------------------------");
                     check.number = variable.roomnumber;
                     strcpy(check.type, "Booked");
                     fwrite(&check, sizeof(check), 1, test);
@@ -93,47 +109,42 @@ void customer_info()
 void main_menu()
 {
     char food_choice;
-flag:
+    flag:
     system("cls");
-    printf("\n\t\t --------------------------------------------------");
-    printf("\n\t\t              HOTEL RESERVATION SYSTEM ");
-    printf("\n\t\t --------------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t --------------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t             Hotel Reservation System");
+    printf("\n\t\t\t\t\t\t\t\t---------------------------------------------------");
     printf("\n\n");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               1. Hotel Info               |");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               2. Reservation              |");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               3. Cancellation             |");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               4. Room Information         |");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               5. Reservation Information  |");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               6. Search Record            |");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               7. Room Checkout            |");
-    printf("\n\t\t\t -------------------------------------------");
-    printf("\n\t\t\t|               8. Exit                     |");
-    printf("\n\t\t\t -------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t -------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               1. Hotel Info               |");
+    printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               2. Reservation              |");
+    printf("\n\t\t\t\t\t\t\t\t--------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               3. Cancellation             |");
+    printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               4. Room Information         |");
+    printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               5. Reservation Information  |");
+    printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               6. Search Record            |");
+    printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               7. Room Checkout            |");
+    printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+    printf("\n\t\t\t\t\t\t\t\t|               8. Exit                     |");
+    printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
     printf("\n\n");
     printf("\t\t");
-    printf("Enter Your Choice: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Choice: ");
     scanf("%d", &choice);
     system("cls");
 
     switch (choice)
     {
     case 1:
+           print_hotel();
 
-        printf("\n\t\t\t\t\t\t\t First Paragraph (Introduction) ");
-        printf("\n\n\n\t\t\t\t\t\t\t Second Paragraph (Introduction) ");
-        printf("\n\n\n\n\t\t\t\t\t\t\t Third Paragraph (Introduction) ");
-        printf("\n\n\n\n\t\t\t\t\t\t\t Fourth Paragraph (Location and other details) ");
-        printf("\n\n\n\n\n\t\t\t\t ");
-        system("pause");
-        getchar();
-        goto flag;
+       // system("pause");
+       goto flag;
         break;
 
     case 2:
@@ -141,18 +152,24 @@ flag:
         ptr1 = fopen("resources/reserved.txt", "ab+");
         if (ptr1 == NULL)
         {
-            printf("\n File Not found! ");
+            printf("\n\t\t\t\t\t\t\t\tFile Not found! ");
             exit(0);
         }
     flag1:
         do
         {
         label:
-            printf("- - - - - Room Type- - - - -");
-            printf("\n1. AC(Air Conditioner) Room");
-            printf("\n2. Deluxe Room");
-            printf("\n3. Normal Room\n");
-            printf("Enter Room Type: ");
+            printf("\n\n\t\t\t\t\t\t\t\t- - - - - - -  Room Type - - - - - - -");
+            printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+            printf("\n\t\t\t\t\t\t\t\t1. AC(Air Conditioner) Room");
+            printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+           // printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+            printf("\n\t\t\t\t\t\t\t\t2. Deluxe Room");
+            printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+           // printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+            printf("\n\t\t\t\t\t\t\t\t3. Normal Room\n");
+             printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
+            printf("\n\t\t\t\t\t\t\t\tEnter Room Type: ");
             scanf("%d", &RoomType);
             switch (RoomType)
             {
@@ -166,15 +183,16 @@ flag:
                 normal_customer_info();
                 break;
             default:
-                printf("\nYou have entered wrong Input !!!\n");
-                sleep(1);
+                printf("\n\t\t\t\t\t\t\t\tYou have entered wrong Input !!!\n");
+                
+                Sleep(666);
                 goto label;
                 break;
             }
-            printf("\n Reservation Successful.");
+            printf("\n\t\t\t\t\t\t\t\tReservation Successful.");
             fclose(ptr1);
             fflush(stdin);
-            printf("\n Do you want to order Food?");
+            printf("\n\t\t\t\t\t\t\t\tDo you want to order Food?");
             scanf("%c", &food_choice);
             if (food_choice == 'Y' || food_choice == 'y')
             {
@@ -183,7 +201,7 @@ flag:
                 getchar();
             }
             fflush(stdin);
-            printf("\n Do you want to Reserve more Room...... If Yes press Y");
+            printf("\n\t\t\t\t\t\t\t\tDo you want to Reserve more Room...... If Yes press Y");
             scanf("%c", &roomChoice);
 
         } while (roomChoice == 'Y' || roomChoice == 'y');
@@ -227,19 +245,21 @@ flag:
         break;
     case 8:
         system("cls");
-        printf("Program Made By: ");
-        printf("\n-Ishan Kanaujiya");
-        printf("\n-Krishala Dangol");
-        printf("\n-Mohammad Aarman");
-        printf("\n-Sakina Dangol");
-        printf("\n-Thank You For Your Time-");
+        entryMenu();
+        
+        printf("\n\t\t\t\t\t\t\t\tProgram Made By: ");
+        printf("\n\t\t\t\t\t\t\t\t-Ishan Kanaujiya");
+        printf("\n\t\t\t\t\t\t\t\t-Krishala Dangol");
+        printf("\n\t\t\t\t\t\t\t\t-Mohammad Aarman");
+        printf("\n\t\t\t\t\t\t\t\t-Sakina Dangol");
+        printf("\n\t\t\t\t\t\t\t\t-Thank You For Your Time-");
         printf("\n\n");
         system("pause");
         exit(0);
         break;
     default:
-        printf("\n You Entered Wrong Choice...... Please Enter your Choice again!");
-        sleep(1);
+        printf("\n\t\t\t\t\t\t\t\tYou Entered Wrong Choice...... Please Enter your Choice again!");
+        Sleep(666);
         system("cls");
 
         goto flag;
@@ -253,21 +273,21 @@ void read_from_file()
     ptr2 = fopen("resources/rooms.txt", "rb");
     if (ptr1 == NULL || ptr2 == NULL)
     {
-        printf("\n***** File Not found!!! ******");
+        printf("\n\t\t\t\t\t\t\t\t***** File Not found!!! ******");
         exit(0);
     }
 
     while (fread(&keep, sizeof(keep), 1, ptr1))
     {
-        printf("\n\nRoom: ");
+        printf("\n\n\t\t\t\t\t\t\t\tRoom: ");
         puts(keep.room);
-        printf("Name: ");
+        printf("\n\t\t\t\t\t\t\t\tName: ");
         puts(keep.name);
-        printf("Your Phone Number: %lld", keep.phone);
-        printf("\nYour Address: ");
+        printf("\n\t\t\t\t\t\t\t\tYour Phone Number: %lld", keep.phone);
+        printf("\n\t\t\t\t\t\t\t\tYour Address: ");
         puts(keep.address);
-        printf("No. of Room Reserved: %d", keep.roomNumber);
-        printf("\nRoom You Reserved: %d",keep.RoomNumber);
+        printf("\n\t\t\t\t\t\t\t\tNo. of Room Reserved: %d", keep.roomNumber);
+        printf("\n\t\t\t\t\t\t\t\tRoom You Reserved: %d",keep.RoomNumber);
       /*  for(i=0;i<keep.RoomNumber;i++)
         {
             printf("%d\t",keep.RoomNumber[i]);
@@ -282,10 +302,10 @@ void room_availability()
     ptr2 = fopen("resources/rooms.txt", "rb");
     if (ptr2 == NULL)
     {
-        printf("Room file not found:");
+        printf("\n\t\t\t\t\t\t\t\tRoom file not found:");
         exit(0);
     }
-    printf("----------Available Rooms are Listed Below----------\n");
+    printf("\n\t\t\t\t\t\t\t\t----------Available Rooms are Listed Below----------\n");
     while (fread(&variable, sizeof(variable), 1, ptr2))
     {
         printf("%d\t", variable.roomnumber);
@@ -303,7 +323,7 @@ void cancellation()
 
     if (ptr2 == NULL || ptr1 == NULL)
     {
-        printf("Sorry !!! Room file not found:");
+        printf("\n\t\t\t\t\t\t\t\tSorry !!! Room file not found:");
         exit(0);
     }
     int cancel_room;
@@ -311,13 +331,13 @@ void cancellation()
     flag3:
     ptr2 = fopen("resources/rooms.txt", "rb");
     test = fopen("resources/test.txt", "wb");
-    printf("Enter room number you want to cancel(1-60):  ");
+    printf("\n\t\t\t\t\t\t\t\tEnter room number you want to cancel(1-60):  ");
     scanf("%d", &cancel_room);
-    printf("Enter your Phone Number that you have provided in reservation: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter your Phone Number that you have provided in reservation: ");
     scanf("%lld", &phone);
     if (cancel_room < 1 || cancel_room > 60)
     {
-        printf("---The Number You entered is Invalid !!!\nPlease Enter According To The Instruction--- ");
+        printf("\n\t\t\t\t\t\t\t\t---The Number You entered is Invalid !!!\nPlease Enter According To The Instruction--- ");
         scanf("%d", &cancel_room);
     }
 
@@ -332,7 +352,7 @@ void cancellation()
     }
     if (success == 0)
     {
-        printf("Record Not Found!!!");
+        printf("\n\t\t\t\t\t\t\t\tRecord Not Found!!!");
         goto flag3;
         exit(0);
     }
@@ -343,7 +363,7 @@ void cancellation()
             int comparison = strcmp("Not Booked", variable.typeroom);
             if (comparison == 0)
             {
-                printf(" The room is not booked. Please Re-Enter your previous room number: ");
+                printf("\n\t\t\t\t\t\t\t\t The room is not booked. Please Re-Enter your previous room number: ");
                 check.number = variable.roomnumber;
                 strcpy(check.type, "Not Booked");
                 fwrite(&check, sizeof(check), 1, test);
@@ -396,7 +416,7 @@ void static_input()
     ptr2 = fopen("resources/rooms.txt", "wb");
     if (ptr2 == NULL)
     {
-        printf("Room file not found:");
+        printf("\n\t\t\t\t\t\t\t\tRoom file not found:");
         exit(0);
     }
 
@@ -406,7 +426,7 @@ void static_input()
         strcpy(array[i].typeroom, "Not Booked");
     }
     fwrite(&array, sizeof(array), 1, ptr2);
-    printf("added success!!!");
+    printf("\n\t\t\t\t\t\t\t\tadded success!!!");
     //  rewind(ptr2);
     /*
    for (i = 0; i < 60; i++)
@@ -427,31 +447,31 @@ void deluxe_customer_info()
 
     if (ptr1 == NULL)
     {
-        printf("Room file not found:");
+        printf("\n\t\t\t\t\t\t\t\tRoom file not found:");
         exit(0);
     }
     fflush(stdin);
-    printf("\n Enter Your Name: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Name: ");
     gets(reservationVariable.name);
-    printf("Enter Your Phone Number: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Phone Number: ");
     scanf("%lld", &reservationVariable.phone);
     fflush(stdin);
-    printf("Enter Your Address: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Address: ");
     gets(reservationVariable.address);
     strcpy(reservationVariable.room, "Deluxe");
-    printf("Enter how many room do you want to Reserve: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter how many room do you want to Reserve: ");
     scanf("%d", &reservationVariable.roomNumber);
     for (i = 1; i <= reservationVariable.roomNumber; i++)
     {
 
-        printf("Enter Room Number(21-40): ");
+        printf("\n\t\t\t\t\t\t\t\tEnter Room Number(21-40): ");
     flag2:
         ptr2 = fopen("resources/rooms.txt", "rb");
         test = fopen("resources/test.txt", "wb");
         scanf("%d", &reservationVariable.RoomNumber);
         if (reservationVariable.RoomNumber < 21 || reservationVariable.RoomNumber > 40)
         {
-            printf("The Number You entered is Invalid !!!\nPlease Enter Room Number Between 21 and 40 for Deluxe Room: ");
+            printf("\n\t\t\t\t\t\t\t\tThe Number You entered is Invalid !!!\nPlease Enter Room Number Between 21 and 40 for Deluxe Room: ");
             goto flag2;
         }
         while (fread(&variable, sizeof(variable), 1, ptr2))
@@ -461,7 +481,7 @@ void deluxe_customer_info()
                 int comparison = strcmp("Booked", variable.typeroom);
                 if (comparison == 0)
                 {
-                    printf("Sorry!! The room is already booked. Please Re-Enter room number: ");
+                    printf("\n\t\t\t\t\t\t\t\tSorry!! The room is already booked. Please Re-Enter room number: ");
                     check.number = variable.roomnumber;
                     strcpy(check.type, "Booked");
                     fwrite(&check, sizeof(check), 1, test);
@@ -500,31 +520,31 @@ void normal_customer_info()
 
     if (ptr1 == NULL)
     {
-        printf("Room file not found:");
+        printf("\n\t\t\t\t\t\t\t\tRoom file not found:");
         exit(0);
     }
     fflush(stdin);
-    printf("\n Enter Your Name: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Name: ");
     gets(reservationVariable.name);
-    printf("Enter Your Phone Number: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Phone Number: ");
     scanf("%lld", &reservationVariable.phone);
     fflush(stdin);
-    printf("Enter Your Address: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Your Address: ");
     gets(reservationVariable.address);
     strcpy(reservationVariable.room, "Normal");
-    printf("Enter how many room do you want to Reserve: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter how many room do you want to Reserve: ");
     scanf("%d", &reservationVariable.roomNumber);
     for (i = 1; i <= reservationVariable.roomNumber; i++)
     {
 
-        printf("Enter Room Number(41-60): ");
+        printf("\n\t\t\t\t\t\t\t\tEnter Room Number(41-60): ");
     flag2:
         ptr2 = fopen("resources/rooms.txt", "rb");
         test = fopen("resources/test.txt", "wb");
         scanf("%d", &reservationVariable.RoomNumber);
         if (reservationVariable.RoomNumber < 41 || reservationVariable.RoomNumber > 60)
         {
-            printf("The Number You entered is Invalid !!!\nPlease Enter Room Number Between 41 and 60 for Normal Room: ");
+            printf("\n\t\t\t\t\t\t\t\tThe Number You entered is Invalid !!!\nPlease Enter Room Number Between 41 and 60 for Normal Room: ");
             goto flag2;
         }
         while (fread(&variable, sizeof(variable), 1, ptr2))
@@ -534,7 +554,7 @@ void normal_customer_info()
                 int comparison = strcmp("Booked", variable.typeroom);
                 if (comparison == 0)
                 {
-                    printf("Sorry!! The room is already booked. Please Re-Enter room number: ");
+                    printf("\n\t\t\t\t\t\t\t\tSorry!! The room is already booked. Please Re-Enter room number: ");
                     check.number = variable.roomnumber;
                     strcpy(check.type, "Booked");
                     fwrite(&check, sizeof(check), 1, test);
@@ -572,25 +592,25 @@ void search_info()
     ptr1 = fopen("resources/reserved.txt", "rb");
     if (ptr1 == NULL)
     {
-        printf("File Not Found!!!!");
+        printf("\n\t\t\t\t\t\t\t\tFile Not Found!!!!");
         exit(0);
     }
-    printf("Enter Customer Name: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter Customer Name: ");
     fflush(stdin);
     gets(name);
     while (fread(&keep, sizeof(keep), 1, ptr1))
     {
         if (strcmp(name, keep.name) == 0)
         {
-            printf("\n\nRoom: ");
+            printf("\n\t\t\t\t\t\t\t\tRoom: ");
             puts(keep.room);
-            printf("Name: ");
+            printf("\n\t\t\t\t\t\t\t\tName: ");
             puts(keep.name);
-            printf("Phone Number: %lld", keep.phone);
-            printf("\nAdress: ");
+            printf("\n\t\t\t\t\t\t\t\tPhone Number: %lld", keep.phone);
+            printf("\n\t\t\t\t\t\t\t\tAdress: ");
             puts(keep.address);
-            printf("No. of Room Reserved: %d", keep.roomNumber);
-            printf("\nReserved Room: %d", keep.RoomNumber);
+            printf("\n\t\t\t\t\t\t\t\tNo. of Room Reserved: %d", keep.roomNumber);
+            printf("\n\t\t\t\t\t\t\t\tReserved Room: %d", keep.RoomNumber);
         }
     }
 }
@@ -604,7 +624,7 @@ void room_checkout()
 
     if (ptr1 == NULL)
     {
-        printf("Sorry !!! Room file not found:");
+        printf("\n\t\t\t\t\t\t\t\tSorry !!! Room file not found:");
         exit(0);
     }
     int checkout_room;
@@ -612,13 +632,13 @@ void room_checkout()
 flag3:
     ptr2 = fopen("resources/rooms.txt", "rb");
     test = fopen("resources/test.txt", "wb");
-    printf("Enter room number you want to Checkout(1-60):  ");
+    printf("\n\t\t\t\t\t\t\t\tEnter room number you want to Checkout(1-60):  ");
     scanf("%d", &checkout_room);
-    printf("Enter your Phone Number that you have provided in reservation: ");
+    printf("\n\t\t\t\t\t\t\t\tEnter your Phone Number that you have provided in reservation: ");
     scanf("%lld", &phone);
     if (checkout_room < 1 || checkout_room > 60)
     {
-        printf("---The Number You entered is Invalid !!!\nPlease Enter According To The Instruction--- ");
+        printf("\n\t\t\t\t\t\t\t\t---The Number You entered is Invalid !!!\nPlease Enter According To The Instruction--- ");
         scanf("%d", &checkout_room);
     }
 
@@ -633,7 +653,7 @@ flag3:
     }
     if (success == 0)
     {
-        printf("Record Not Found!!!");
+        printf("\n\t\t\t\t\t\t\t\tRecord Not Found!!!");
         goto flag3;
         exit(0);
     }
@@ -644,7 +664,7 @@ flag3:
             int comparison = strcmp("Not Booked", variable.typeroom);
             if (comparison == 0)
             {
-                printf(" The room is not booked. Please Re-Enter your previous room number: ");
+                printf("\n\t\t\t\t\t\t\t\tThe room is not booked. Please Re-Enter your previous room number: ");
                 check.number = variable.roomnumber;
                 strcpy(check.type, "Not Booked");
                 fwrite(&check, sizeof(check), 1, test);
@@ -669,9 +689,43 @@ flag3:
         }
     }
 
+
     fclose(ptr2);
     fclose(test);
     remove("resources/rooms.txt");
     rename("resources/test.txt", "resources/rooms.txt");
     fclose(ptr1);
+}
+void print_hotel()
+{
+    printf("\n\t\t\t\t\t\t\t\t    ***********************************");
+	printf("\n\t\t\t\t\t\t\t\t             HOTEL HEAVEN");
+	printf("\n\t\t\t\t\t\t\t\t    ***********************************");
+	printf("\n\n");
+//	printf("\n-----------------------------------------------------------------------------------");
+	printf("\n It is a 15 story hotel which is well equiped with all the requirement.");
+	printf("\n All of the rooms are completely air condition and spacious.");
+	printf("\n This 4-star hotel offers an ATM and a concierge service.");
+	printf("\n Breakfast is available every morning,lunch and Dinner are also provided according to the customers choice.");
+	printf("\n This area is mostly popular for cyclying and bike hire is also available.");
+	printf("\n-----------------------------------------------------------------------------------");
+	printf("\n\n\n Amenities: ");
+	printf("\n a.24 hours power backup");
+	printf("\n b.Automatic lift");
+    printf("\n c.Ample parking space");
+    printf("\n d.Free internet services");
+    printf("\n e.24 hours room service");
+    printf("\n f.Laundry services");
+
+
+	printf("\n\n Location: ");
+	printf("\n ------------------------");
+	printf("\n Kamalpokhari, Kathmandu");
+	
+	printf("\n\n Contact No: ");
+	printf("\n ------------------------");
+	printf("\n Tel: 01-5432324 \n Mobile: 9861545454 \n Email: hotelheaven@gmail.com");
+	printf("\n\n\n");
+	system("pause");
+    //goto flag;
 }

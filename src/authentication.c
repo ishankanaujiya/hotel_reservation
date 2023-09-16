@@ -5,6 +5,7 @@
 #include "unistd.h"
 #include <string.h>
 #include<conio.h>
+#include<Windows.h>
 
 struct registration_structure form, login[100], password_check;
 
@@ -30,40 +31,40 @@ void registrationPage()
 		exit(0);
 	}
 	fseek(fileLogin, 0, SEEK_END);
-	printf("\n                           *********************************************");
-	printf("\n                                           REGESTRATION ");
-	printf("\n                           *********************************************");
+	printf("\n\t\t\t\t\t\t\t\t*********************************************");
+	printf("\n\t\t\t\t\t\t\t\t               REGESTRATION ");
+	printf("\n\t\t\t\t\t\t\t\t*********************************************");
 	printf("\n\n\n");
-	printf("\n                ---------------------------------------------");
+	printf("\n\t\t\t\t\t\t\t\t---------------------------------------------");
 	fflush(stdin);
-	printf("\n                   Name: ");
+	printf("\n\t\t\t\t\t\t\t\tName: ");
 	gets(form.name);
 
-	printf("\n                ---------------------------------------------");
+	printf("\n\t\t\t\t\t\t\t\t---------------------------------------------");
 	fflush(stdin);
-	printf("\n                  Address: ");
+	printf("\n\t\t\t\t\t\t\t\tAddress: ");
 	gets(form.address);
 
-	printf("\n                ---------------------------------------------");
-	printf("\n                   Phone Number: ");
+	printf("\n\t\t\t\t\t\t\t\t---------------------------------------------");
+	printf("\n\t\t\t\t\t\t\t\tPhone Number: ");
 	scanf("%lld", &form.phone);
-	printf("\n                ---------------------------------------------");
+	printf("\n\t\t\t\t\t\t\t\t---------------------------------------------");
 	fflush(stdin);
-	printf("\n                    Email: ");
+	printf("\n\t\t\t\t\t\t\t\tEmail: ");
 	gets(form.email);
 	fflush(stdin);
 	system("cls");
 	//printf("\n                        :*****************************************************:");
-	printf("\n                             *********************************************     ");
-	printf("\n                                   Set New Username and Password               ");
-	printf("\n                             *********************************************     ");
+	printf("\n\t\t\t\t\t\t\t\t*********************************************     ");
+	printf("\n\t\t\t\t\t\t\t\t              Set New Username and Password               ");
+	printf("\n\t\t\t\t\t\t\t\t*********************************************     ");
 	//printf("\n                        :*****************************************************:");
 
 	printf("\n\n\n\n\n");
-	printf("\n                :--------------------------------------------:");
-	printf("\n                        :      Username: ");
+	printf("\n\t\t\t\t\t\t\t\t:--------------------------------------------:");
+	printf("\n\t\t\t\t\t\t\t\t:      Username: ");
 	gets(form.formUsername);
-	printf("\n                :--------------------------------------------:");
+	printf("\n\t\t\t\t\t\t\t\t:--------------------------------------------:");
 
 	// Code for Strong Password
 	fflush(stdin);
@@ -72,22 +73,22 @@ void registrationPage()
 
 	system("cls");
 	system("color 0B");
-	printf("\n *******************************************************************");
-	printf("\n Enter the Strong Password");
-	printf("\n *******************************************************************");
-	printf("\n The Password Must Contain");
-	printf("\n 1. Maximum 15 Characters");
-	printf("\n 2. Must contain atleast One Digit/Number");
-	printf("\n 3. Must contain atleast One Symbol '@', '#', '*', '$'");
-	printf("\n *******************************************************************");
+	printf("\n\t\t\t\t\t\t\t\t*******************************************************************");
+	printf("\n\t\t\t\t\t\t\t\tEnter the Strong Password");
+	printf("\n\t\t\t\t\t\t\t\t*******************************************************************");
+	printf("\n\t\t\t\t\t\t\t\tThe Password Must Contain");
+	printf("\n\t\t\t\t\t\t\t\t1. Maximum 15 Characters");
+	printf("\n\t\t\t\t\t\t\t\t2. Must contain atleast One Digit/Number");
+	printf("\n\t\t\t\t\t\t\t\t3. Must contain atleast One Symbol '@', '#', '*', '$'");
+	printf("\n\t\t\t\t\t\t\t\t*******************************************************************");
 	printf("\n\n");
-	sleep(1);
+	Sleep(666);
 	system("color 07");
 	fflush(stdin);
-	printf("\n                :--------------------------------------------:");
+	printf("\n\t\t\t\t\t\t\t\t:--------------------------------------------:");
 
 	fflush(stdin);
-	printf("\n                        :Password: ");
+	printf("\n\t\t\t\t\t\t\t\t            :Password: ");
 	gets(form.password);
 
 	//printf("\n                :---------------------------------------------");
@@ -98,7 +99,7 @@ void registrationPage()
 		printf("\n *************************************************************");
 		printf("\n Password is too Long.... Must have maximum 15 Characters");
 		printf("\n *************************************************************");
-		sleep(1);
+		Sleep(666);
 	}
 	i=0;
 	fflush(stdin);
@@ -125,38 +126,38 @@ void registrationPage()
 
 	if(count_numbers>0 && count_alphabets>0 && count_special_characters>0 )
 	{
-		printf("\n The Entered Password is Strong");
+		printf("\n\t\t\t\t\t\t\t\tThe Entered Password is Strong");
 		password_conformation:
 		fflush(stdin);
 		printf("\n\n");
-		printf("\n ******************************");
-		printf("\n   Confirm Password: ");
+		printf("\n\t\t\t\t\t\t\t\t******************************");
+		printf("\n\t\t\t\t\t\t\t\tConfirm Password: ");
 		gets(confirmation_password);
-		printf("\n ******************************");
+		printf("\n\t\t\t\t\t\t\t\t******************************");
 		if(strcmp(confirmation_password,strong_password_check)==0)
 		{
 			system("cls");
-			printf("\n **********PASSWORD MATCHED**********");
+			printf("\n\t\t\t\t\t\t\t\t**********PASSWORD MATCHED**********");
 			printf("\n\n");
 		}
 		else
 		{
-			printf("\n *************PASSWORD NOT MATCHED**********");
+			printf("\n\t\t\t\t\t\t\t\t*************PASSWORD NOT MATCHED**********");
 			goto password_conformation;
 		}
 	}
 	else
 	{
 		printf("\n\n");
-		printf("\n *************************************************");
-		printf("\n The Entered Password is not Strong Enough");
-		printf("\n *************************************************");
-		sleep(1);
+		printf("\n\t\t\t\t\t\t\t\t*************************************************");
+		printf("\n\t\t\t\t\t\t\t\t\tThe Entered Password is not Strong Enough");
+		printf("\n\t\t\t\t\t\t\t\t*************************************************");
+		Sleep(666);
 		goto password_check;
 	}
 	fwrite(&form, sizeof(struct registration_structure), 1, fileLogin);
 	
-	printf("\n Account Regestered Successfully.....\n\n");
+	printf("\n\t\t\t\t\t\t\t\tAccount Regestered Successfully.....\n\n");
 	fclose(fileLogin);
 	system("pause");
 	system("cls");
@@ -184,18 +185,18 @@ int loginPage()
 	fread(&login, sizeof(login), 1, fileLogin);
 
 	//printf("\n                       :------------------------------------------------------:");
-	printf("\n                            ***********************************************    ");
-	printf("\n                                                LOGIN                          ");
-	printf("\n                            ***********************************************    ");
+	printf("\n\t\t\t\t\t\t\t\t************************************************    ");
+	printf("\n\t\t\t\t\t\t\t\t                  LOGIN                          ");
+	printf("\n\t\t\t\t\t\t\t\t***********************************************    ");
 	//printf("\n                       :------------------------------------------------------:");
 	printf("\n\n\n\n");
-	printf("\n                      -------------------------------------------");
+	printf("\n\t\t\t\t\t\t\t\t-------------------------------------------");
 	fflush(stdin);
-	printf("\n                        Username: ");
+	printf("\n\t\t\t\t\t\t\t\tUsername: ");
 	gets(username);
 	fflush(stdin);
-	printf("\n                      -------------------------------------------");
-	printf("\n                        Password: ");
+	printf("\n\t\t\t\t\t\t\t\t*-------------------------------------------");
+	printf("\n\t\t\t\t\t\t\t\tPassword: ");
 	//gets(pass);
 	i=0;
 	while (1)
@@ -227,7 +228,7 @@ int loginPage()
 		
 	}
 	
-	printf("\n                      -------------------------------------------\n\n");
+	printf("\n\t\t\t\t\t\t\t\t-------------------------------------------\n\n");
 	//system("pause");
 	count1 = 0;
 	rewind(fileLogin);
@@ -235,24 +236,24 @@ int loginPage()
 	getchar();
 
 	system("color 0B");
-	printf("\n\t\t\t\t\t\t");
+	printf("\n\t\t\t\t\t\t\t\t");
 	printf("PLEASE WAIT");
-	printf("\n\t\t\t\t\t\t .");
-	sleep(0.666);
+	printf("\n\t\t\t\t\t\t\t\t .");
+	Sleep(666);
 	printf("");
-	sleep(0.666);
+	Sleep(666);
 	printf(".");
-	sleep(0.666);
+	Sleep(666);
 	printf(".");
-	sleep(0.666);
+	Sleep(666);
 	printf(".");
-	sleep(0.666);
+	Sleep(666);
 	printf(".");
-	sleep(0.666);
+	Sleep(666);
 	printf(".");
-	sleep(0.666);
+	Sleep(666);
 	printf(".");
-	sleep(0.666);
+	Sleep(666);
 	system("color 07");
 
 	for (i = 0; i < 100; i++)
@@ -260,9 +261,9 @@ int loginPage()
 		if ((strcmp(username, login[i].formUsername) == 0) && (strcmp(pass, login[i].password) == 0))
 		{
 			system("cls");
-			printf("\n *********************************************");
-			printf("\n Successfully Logged in into System");
-			printf("\n *********************************************");
+			printf("\n\t\t\t\t\t\t\t\t*********************************************");
+			printf("\n\t\t\t\t\t\t\t\tSuccessfully Logged in into System");
+			printf("\n\t\t\t\t\t\t\t\t*********************************************");
 			printf("\n\n");
 			system("pause");
 			fclose(fileLogin);
@@ -288,7 +289,7 @@ void forgotPassword()
 	fileLogin = fopen("resources/LoginPage.DAT", "rb");
 	if (fileLogin == NULL)
 	{
-		printf("\n File Not Found");
+		printf("\n\t\t\t\t\t\t\t\tFile Not Found");
 		exit(0);
 	}
 	fflush(stdin);
@@ -298,11 +299,11 @@ void forgotPassword()
 
 	system("cls");
 	//printf("\n Name = %s", forgot_password_check[4].name);
-	printf("\n *****************SEARCH*****************");
-	printf("\n Enter Applicants Name: ");
+	printf("\n\t\t\t\t\t\t\t\t*****************SEARCH*****************");
+	printf("\n\t\t\t\t\t\t\t\tEnter Applicants Name: ");
 	fflush(stdin);
 	gets(forgot_password_name);
-	printf("\n Enter Applicants Number: ");
+	printf("\n\t\t\t\t\t\t\t\tEnter Applicants Number: ");
 	scanf("%lld", &forgot_password_number);
 	//fclose(fileLogin);
 	for(i=0; i<100; i++)
@@ -316,12 +317,12 @@ void forgotPassword()
 			if(forgot_password_number==forgot_password_check[i].phone)
 			{
 				system("cls");
-				printf("\n *************** DETAILS ****************");
-				printf("\n ----------------------------------------------------------------------------------");
-				printf("\n Username                       |                 Password                    ");
-				printf("\n ----------------------------------------------------------------------------------");
-				printf("\n Username = %s      |      Password = %s", forgot_password_check[i].formUsername, forgot_password_check[i].password);
-				printf("\n --------------------------------------------------------------------------------------");
+				printf("\n\t\t\t\t\t\t\t\t*************** DETAILS ****************");
+				printf("\n\t\t\t\t\t\t\t\t----------------------------------------------------------------------------------");
+				printf("\n\t\t\t\t\t\t\t\tUsername                       |                 Password                    ");
+				printf("\n\t\t\t\t\t\t\t\t----------------------------------------------------------------------------------");
+				printf("\n\t\t\t\t\t\t\t\tUsername = %s                            Password = %s", forgot_password_check[i].formUsername, forgot_password_check[i].password);
+				printf("\n\t\t\t\t\t\t\t\t-----------------------------------------------------------------------------------");
 				count_not_found++;
 				
 			}
@@ -330,9 +331,9 @@ void forgotPassword()
 	if(count_not_found==0)
 	{
 		system("cls");
-		printf("\n *****************************************");
-		printf("\n The Account is not Registered");
-		printf("\n *****************************************");
+		printf("\n\t\t\t\t\t\t\t\t*****************************************");
+		printf("\n\t\t\t\t\t\t\t\tThe Account is not Registered");
+		printf("\n\t\t\t\t\t\t\t\t*****************************************");
 		printf("\n\n");
 		system("pause");
 		system("cls");
