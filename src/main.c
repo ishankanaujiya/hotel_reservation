@@ -6,7 +6,8 @@
 
 int main()
 {
-    entryMenu();
+    //entryMenu();
+    main_menu();
    // printf("\n Hello World");
     getchar();
     return 0;

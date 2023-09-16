@@ -7,6 +7,10 @@ void static_input();
 
 void room_availability();
 void cancellation();
+void search_info();
+void deluxe_customer_info();
+void normal_customer_info();
+void room_checkout();
 struct reservationName
 {
 	char name[100];
@@ -14,6 +18,7 @@ struct reservationName
 	char address[100];
 	int roomNumber;
 	int RoomNumber;
+	char room[10];
 };
 struct staticInput
 {
